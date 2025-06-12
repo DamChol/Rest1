@@ -29,6 +29,7 @@ pipeline {
         stage('Run UI tests on test env') {
             steps {
                 echo 'Run UI tests'
+				mvn clean test
             }
         }
 
