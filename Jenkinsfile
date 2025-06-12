@@ -12,7 +12,12 @@ pipeline {
                 git branch: '${BRANCH}', url: 'https://github.com/DamChol/Rest1.git'
             }
         }
-
+		
+		stage('Run API tests') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
 
         stage('Build App') {
             steps {
@@ -29,7 +34,6 @@ pipeline {
         stage('Run UI tests on test env') {
             steps {
                 echo 'Run UI tests'
-				mvn clean test
             }
         }
 
